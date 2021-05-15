@@ -397,14 +397,4 @@ void		xrRender_initconsole	()
 	CMD3(CCC_Token,		"r2_smap_size",			&ps_r2_smap_size,			qr2_smap_size_token	);
 }
 
-void	xrRender_apply_tf		()
-{
-	Console->Execute	("r__tf_aniso"	);
-#if RENDER==R_R1
-	Console->Execute	("r1_tf_mipbias");
-#else
-	Console->Execute	("r2_tf_mipbias");
-#endif
-}
-
 #endif
