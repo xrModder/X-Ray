@@ -1,0 +1,9 @@
+<w>
+	<file name="ui\map\minimap\minimap">
+
+		<texture id="minimap_back"		x="0"	y="0"	width="185"	height="214" />
+		<texture id="minimap_point"		x="185"	y="0"	width="4"	height="4" />
+		<texture id="minimap_compass"	x="189"	y="0"	width="32"	height="32" />
+
+	</file>
+</w>

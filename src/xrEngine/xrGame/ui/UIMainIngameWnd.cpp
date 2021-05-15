@@ -154,7 +154,7 @@ void CUIMainIngameWnd::Init()
 	if(IsGameTypeSingle())
 	{
 		xml_init.InitStatic					(uiXml, "static_pda_online", 0, &UIPdaOnline);
-		UIZoneMap->Background().AttachChild	(&UIPdaOnline);
+		UIZoneMap->Minimap().AttachChild	(&UIPdaOnline);
 	}
 
 

@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window>
 
-	<back_movie x="148" y="0" width="876" height="400" stretch="1">
-		<texture x="0" y="0" width="876" height="400">ui\ui_mm_main_back_crop</texture>
-	</back_movie>
-
 	<background x="0" y="0" width="1024" height="768">
+		<auto_static x="148" y="0" width="876" height="400" stretch="1">
+			<texture x="0" y="0" width="876" height="400">ui\ui_mm_main_back_crop</texture>
+		</auto_static>
 		<auto_static x="0" y="0" width="128.25" height="256" stretch="1">
 			<texture>main_menu_back_l1</texture>
 		</auto_static>
@@ -27,11 +26,10 @@
 		<auto_static x="896.25" y="512" width="128.25" height="256" stretch="1">
 			<texture>main_menu_back_r3</texture>
 		</auto_static>
+		<auto_static x="522" y="459" width="96" height="256" stretch="1">
+			<texture x="0" y="0" width="128" height="256">ui\ui_mm_fire</texture>
+		</auto_static>
 	</background>
-
-	<fire_movie x="522" y="459" width="96" height="256" stretch="1">
-		<texture x="0" y="0" width="128" height="256">ui\ui_mm_fire</texture>
-	</fire_movie>
 
 	<shniaga_wnd x="514" y="419" width="400" height="380">
 		<buttons_region	x="75" y="1" width="249.75" height="380" always_show_scroll="false" />
