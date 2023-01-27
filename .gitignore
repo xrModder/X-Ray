@@ -1,0 +1,11 @@
+# Игнорировать пользовательские папки и файлы
+# Ignore user folders and files
+
+# Папки
+# Folders
+.vs/
+Output/
+
+# Файлы
+# Files
+*.vcxproj.user

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  <PropertyGroup Condition="'$(Configuration)'=='Debug' Or '$(Configuration)'=='Debug_Dedicated'">
+
+    <LinkIncremental>true</LinkIncremental>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)'=='Mixed' Or '$(Configuration)'=='Mixed_Dedicated' Or '$(Configuration)'=='Release' Or '$(Configuration)'=='Release_Dedicated'">
+
+    <LinkIncremental>false</LinkIncremental>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+
+  </PropertyGroup>
+
+  <PropertyGroup Label="UserMacros">
+
+    <xrBinaries>$(SolutionDir)\Output\Binaries\</xrBinaries>
+    <xrLibraries>$(SolutionDir)\Output\Libraries\</xrLibraries>
+
+  </PropertyGroup>
+
+  <PropertyGroup Label="OutputDirectories">
+
+    <OutDir Condition="'$(ConfigurationType)'=='Application'">$(xrBinaries)</OutDir>
+    <OutDir Condition="'$(ConfigurationType)'=='DynamicLibrary'">$(xrBinaries)</OutDir>
+    <OutDir Condition="'$(ConfigurationType)'=='StaticLibrary'">$(xrLibraries)</OutDir>
+    <IntDir>$(SolutionDir)\Output\Intermediate\$(ProjectName)\</IntDir>
+
+  </PropertyGroup>
+
+  <ItemDefinitionGroup>
+
+    <ClCompile>
+      <FloatingPointModel>Fast</FloatingPointModel>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+    </ClCompile>
+
+    <ClCompile Condition="'$(Configuration)'=='Debug' Or '$(Configuration)'=='Debug_Dedicated'">
+      <!-- MultiProcessorCompilation несовместим с LinkIncremental и UseDebugLibraries -->
+      <MultiProcessorCompilation>false</MultiProcessorCompilation>
+      <Optimization>Disabled</Optimization>
+    </ClCompile>
+
+    <ClCompile Condition="'$(Configuration)'=='Mixed' Or '$(Configuration)'=='Mixed_Dedicated'">
+      <!-- Optimization = Disabled - принудительное отключение оптимизации -->
+      <!-- Оптимизация включается автоматически, когда UseDebugLibraries = false -->
+      <Optimization>MaxSpeed</Optimization>
+    </ClCompile>
+
+    <ClCompile Condition="'$(Configuration)'=='Mixed' Or '$(Configuration)'=='Mixed_Dedicated' Or '$(Configuration)'=='Release' Or '$(Configuration)'=='Release_Dedicated'">
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+
+    <ClCompile Condition="'$(Configuration)'=='Release' Or '$(Configuration)'=='Release_Dedicated'">
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <Optimization>MaxSpeed</Optimization>
+      <WholeProgramOptimization>true</WholeProgramOptimization>
+    </ClCompile>
+
+    <Link>
+      <LargeAddressAware>true</LargeAddressAware>
+      <SubSystem>Windows</SubSystem>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+
+    <Link Condition="'$(Configuration)'=='Mixed' Or '$(Configuration)'=='Mixed_Dedicated'">
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+
+    <Link Condition="'$(Configuration)'=='Release' Or '$(Configuration)'=='Release_Dedicated'">
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+
+  </ItemDefinitionGroup>
+
+</Project>

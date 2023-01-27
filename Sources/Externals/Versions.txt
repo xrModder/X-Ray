@@ -1,0 +1,5 @@
+BugTrap (zlib) : 1.4.9 build 113
+boost          : 1.30.0+
+ogg            : 1.3.5
+theora         : 1.1.1
+vorbis         : 1.3.7

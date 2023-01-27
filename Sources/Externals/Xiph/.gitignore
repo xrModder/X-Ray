@@ -1,0 +1,7 @@
+# Игнорировать пользовательские папки и файлы
+# Ignore user folders and files
+
+# Папки
+# Folders
+Intermediate/
+Libraries/
